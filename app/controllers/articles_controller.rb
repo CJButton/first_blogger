@@ -11,6 +11,8 @@ class ArticlesController < ApplicationController
     def show
         # should I keep the "params hash" (which is actually a method which returns a hash)?
         @article = Article.find(params[:id])
+        @comment = Comment.new
+        @comment.article_id = @article.id
     
     end
     
