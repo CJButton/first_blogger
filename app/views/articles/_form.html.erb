@@ -1,0 +1,27 @@
+
+# This is a partial
+# it holds a small piece of the template for us, so that we
+# don't need to repeat outselves too often
+
+<%= form_for(@article) do |f| %>
+  <ul>
+  <% @article.errors.full_messages.each do |error| %>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+  <p>
+    # f.label creates an HTML label for a field
+    <%= f.label :title %><br />
+    # f.text_field creates a single line text box named 'title'
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    # f.text_area creates a multi-line text box named body
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    # f.submit creates a button labeled "create"
+    <%= f.submit %>
+  </p>
+<% end %>
