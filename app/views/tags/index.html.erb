@@ -1,0 +1,12 @@
+<h1>All Tags</h1>
+
+<ul id="tags">
+  <% @tag.each do |tag| %>
+    <li>
+      <%= link_to tag.name, tag_path(tag) %>
+    </li>
+  <% end %>
+</ul>
+
+# looked at the articles version for help
+# changed the .title to .name for the tags
