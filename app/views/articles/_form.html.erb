@@ -3,7 +3,7 @@
 # it holds a small piece of the template for us, so that we
 # don't need to repeat outselves too often
 
-<%= form_for(@article) do |f| %>
+<%= form_for(@article, html: {multipart: true}) do |f| %>
   <ul>
   <% @article.errors.full_messages.each do |error| %>
     <li><%= error %></li>
@@ -23,6 +23,13 @@
   <p>
     # f.submit creates a button labeled "create"
     <%= f.submit %>
+  </p>
+  <p>
+    <% if @article.image.exists? %>
+      <%= image_tag @article.image.url %><br/>
+    <% end %>
+    <%= f.label :image, "Attach a New Image" %><br />
+    <%= f.file_field :image %>
   </p>
   <p>
   <%= f.label :tag_list %><br />
