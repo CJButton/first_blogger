@@ -8,6 +8,8 @@ class ArticlesController < ApplicationController
         @articles = Article.all
     end
     
+    before_filter :require_login, except: [:show, :index]
+    
     def show
         # should I keep the "params hash" (which is actually a method which returns a hash)?
         @article = Article.find(params[:id])
